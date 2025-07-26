@@ -5,6 +5,8 @@ VisualStudioVersion = 17.14.36301.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailAutomation.Domain", "MailAutomation.Domain\MailAutomation.Domain.csproj", "{8E028F48-F7B9-489B-9F48-EBF1F3B8DB81}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailAutomation.Application", "MailAutomation.Application\MailAutomation.Application.csproj", "{709B3A1C-205B-4979-BF9D-B585EB27F114}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{8E028F48-F7B9-489B-9F48-EBF1F3B8DB81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E028F48-F7B9-489B-9F48-EBF1F3B8DB81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E028F48-F7B9-489B-9F48-EBF1F3B8DB81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{709B3A1C-205B-4979-BF9D-B585EB27F114}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{709B3A1C-205B-4979-BF9D-B585EB27F114}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{709B3A1C-205B-4979-BF9D-B585EB27F114}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{709B3A1C-205B-4979-BF9D-B585EB27F114}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
