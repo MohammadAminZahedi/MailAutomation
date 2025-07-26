@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailAutomation.Domain", "Ma
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailAutomation.Application", "MailAutomation.Application\MailAutomation.Application.csproj", "{709B3A1C-205B-4979-BF9D-B585EB27F114}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailAutomation.Infrastructure", "MailAutomation.Infrastructure\MailAutomation.Infrastructure.csproj", "{9C30FD45-FD85-4480-B41F-43726E46E076}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{709B3A1C-205B-4979-BF9D-B585EB27F114}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{709B3A1C-205B-4979-BF9D-B585EB27F114}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{709B3A1C-205B-4979-BF9D-B585EB27F114}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C30FD45-FD85-4480-B41F-43726E46E076}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C30FD45-FD85-4480-B41F-43726E46E076}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C30FD45-FD85-4480-B41F-43726E46E076}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C30FD45-FD85-4480-B41F-43726E46E076}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
