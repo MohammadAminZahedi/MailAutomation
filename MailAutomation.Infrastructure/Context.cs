@@ -18,6 +18,7 @@ namespace MailAutomation.Infrastructure
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new UserMapping());
+            builder.ApplyConfiguration(new MailMapping());
             base.OnModelCreating(builder);
         }
     }

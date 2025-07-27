@@ -9,6 +9,6 @@ namespace MailAutomation.Application.MailServices.Commands
 {
     public interface IRestoreMail
     {
-        ResultDto Restore(string mailId);
+        ResultDto Restore(string mailId, string userId);
     }
 }

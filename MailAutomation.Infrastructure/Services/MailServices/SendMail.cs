@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MailAutomation.Infrastructure
+namespace MailAutomation.Infrastructure.Services.MailServices
 {
     public class SendMail : ISendMail
     {

@@ -9,6 +9,6 @@ namespace MailAutomation.Application.MailServices.Commands
 {
     public interface IRemoveMail
     {
-        ResultDto Remove(string mailId);
+        ResultDto Remove(string mailId,string userId);
     }
 }

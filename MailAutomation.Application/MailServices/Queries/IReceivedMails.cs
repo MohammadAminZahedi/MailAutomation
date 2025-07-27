@@ -9,6 +9,6 @@ namespace MailAutomation.Application.MailServices.Queries
 {
     public interface IReceivedMails
     {
-        IEnumerable<MailDto> GetReceivedMails(string mailId);
+        IEnumerable<MailDto> GetReceivedMails(string userId);
     }
 }
