@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.3.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.7" />
@@ -19,10 +20,6 @@
   <ItemGroup>
     <ProjectReference Include="..\MailAutomation.Application\MailAutomation.Application.csproj" />
     <ProjectReference Include="..\MailAutomation.Domain\MailAutomation.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Services\UserServices\" />
   </ItemGroup>
 
 </Project>
