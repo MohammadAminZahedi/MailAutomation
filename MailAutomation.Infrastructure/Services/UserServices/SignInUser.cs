@@ -30,12 +30,12 @@ namespace MailAutomation.Infrastructure.Services.UserServices
                 var result = _signInManager.PasswordSignInAsync(user.UserName, user.Passwrod, true, true).Result;
 
                 if (result.Succeeded)
-                    return new ResultDto(true, "s_100");
+                    return new ResultDto(true, Results.Success);
                 else
-                    return new ResultDto(false, "f_110");
+                    return new ResultDto(false, Results.SginInError);
             }
             else
-                return new ResultDto(false, "f_111");
+                return new ResultDto(false, Results.UserNotFound);
         }
     }
 }

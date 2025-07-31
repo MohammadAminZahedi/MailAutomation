@@ -31,12 +31,12 @@ namespace MailAutomation.Infrastructure.Services.MailServices
                 int stateChanges = _context.SaveChanges();
 
                 if (stateChanges > 0)
-                    return new ResultDto(true, "s_200");
-                else return new ResultDto(false, "f_210");
+                    return new ResultDto(true, Results.Success);
+                else return new ResultDto(false, Results.DatabaseError);
             }
             else
             {
-                return new ResultDto(false, "f_211"); //f_211 means fail, mail service, database operation, not found
+                return new ResultDto(false, Results.MailNotFound);
             }
 
         }

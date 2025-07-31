@@ -21,6 +21,8 @@ namespace MailAutomation.Infrastructure.Services.UserServices
 
         public ResultDto SignUp(UserDto user)
         {
+            
+
             User userToSignUp = new User()
             {
                 Id = Guid.NewGuid().ToString(),
@@ -29,12 +31,21 @@ namespace MailAutomation.Infrastructure.Services.UserServices
                 LastName = user.LastName
             };
 
-            var result = _userManager.CreateAsync(userToSignUp, user.Passwrod).Result;
+            if(_userManager.FindByNameAsync(user.UserName) == null)
+            {
+                var result = _userManager.CreateAsync(userToSignUp, user.Passwrod).Result;
 
-            if (result.Succeeded)
-                return new ResultDto(true, "s_100");
+                if (result.Succeeded)
+                    return new ResultDto(true, Results.Success);
+                else
+                    return new ResultDto(false, Results.SignUpError);
+            }
             else
-                return new ResultDto(false, "f_110", result.Errors.Select(e => e.Description).ToList());
+            {
+                return new ResultDto(false, Results.UserAleardyExist);
+            }
+
+            
 
 
         }

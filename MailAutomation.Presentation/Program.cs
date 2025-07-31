@@ -1,3 +1,5 @@
+using MailAutomation.Infrastructure;
+
 namespace MailAutomation.Presentation
 {
     public class Program
@@ -7,6 +9,8 @@ namespace MailAutomation.Presentation
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            builder.Services.AddInfrastructureServices();
+
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();
@@ -24,10 +28,12 @@ namespace MailAutomation.Presentation
 
             app.UseAuthorization();
 
+            app.UseAuthorization();
+
             app.MapStaticAssets();
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}")
+                pattern: "{controller=Accounting}/{action=SignUp}/{id?}")
                 .WithStaticAssets();
 
             app.Run();

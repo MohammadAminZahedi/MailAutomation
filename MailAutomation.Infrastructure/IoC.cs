@@ -17,7 +17,7 @@ namespace MailAutomation.Infrastructure
 {
     public static class IoC
     {
-        public static IServiceCollection InfrastructureServices(this IServiceCollection services)
+        public static IServiceCollection AddInfrastructureServices(this IServiceCollection services)
         {
             #region Add Services
             //User

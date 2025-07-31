@@ -37,9 +37,9 @@ namespace MailAutomation.Infrastructure.Services.MailServices
             int stateChanges = _context.SaveChanges();
 
             if (stateChanges > 0)
-                return new ResultDto(true, "s_100");
+                return new ResultDto(true, Results.Success);
             else
-                return new ResultDto(false, "f_200");
+                return new ResultDto(false, Results.DatabaseError);
         }
     }
 }

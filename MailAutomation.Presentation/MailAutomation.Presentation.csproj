@@ -6,4 +6,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Home\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MailAutomation.Application\MailAutomation.Application.csproj" />
+    <ProjectReference Include="..\MailAutomation.Infrastructure\MailAutomation.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
