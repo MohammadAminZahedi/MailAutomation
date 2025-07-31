@@ -1,0 +1,81 @@
+@font-face {
+    font-family: "Vazir";
+    src: url('../fonts/vazir/Vazir.ttf');
+}
+
+body {
+    font-family: "Vazir";
+    background-color: rgba(204, 234, 255, 0.445);
+}
+
+.container-center {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mail-component {
+    height: 100px;
+    background-color: whitesmoke;
+    border-radius: 1rem;
+
+}
+
+.mail-component>.content {
+    font-size: 1rem;
+}
+
+.mail-component>.number {
+    background-color: rgb(243, 146, 146);
+    padding: 5px 10px;
+    border-radius: 3rem;
+    margin: 1rem;
+    color: rgb(134, 0, 0);
+    font-size: 1rem;
+}
+
+.icon-box {
+
+    padding: 10px;
+    border-radius: 1rem;
+    margin: 1rem;
+}
+
+.icon-box-sm{
+    background-color: rgba(194, 194, 194, 0.284);
+    padding: 5px;
+    border-radius: .5rem;
+}
+
+.sent-mail {
+    background-color: rgb(158, 243, 146);
+    color: rgb(0, 134, 7);
+}
+
+.sent-mail-color{
+    color: rgb(0, 134, 7);
+}
+
+.received-mail {
+    background-color: rgb(146, 161, 243);
+    color: rgb(0, 80, 134);
+}
+
+.received-mail-color{
+    color: rgb(0, 80, 134);
+}
+
+.trash-mail {
+    background-color: rgb(243, 146, 146);
+    color: rgb(134, 0, 0);
+}
+
+table{
+    width: 100%;
+}
+
+table>tbody>tr{
+border-bottom: 1px rgba(119, 119, 119, 0.596) solid;
+
+}

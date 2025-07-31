@@ -28,12 +28,12 @@ namespace MailAutomation.Infrastructure.Services.UserServices
                 Id = Guid.NewGuid().ToString(),
                 UserName = user.UserName,
                 FirstName = user.FirstName,
-                LastName = user.LastName
+                LastName = user.LastName,
             };
 
-            if(_userManager.FindByNameAsync(user.UserName) == null)
+            if(_userManager.Users.Any(x=>x.UserName==user.UserName) == false)
             {
-                var result = _userManager.CreateAsync(userToSignUp, user.Passwrod).Result;
+                var result = _userManager.CreateAsync(userToSignUp, user.Password).Result;
 
                 if (result.Succeeded)
                     return new ResultDto(true, Results.Success);
