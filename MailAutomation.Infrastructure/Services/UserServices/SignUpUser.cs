@@ -21,7 +21,7 @@ namespace MailAutomation.Infrastructure.Services.UserServices
 
         public ResultDto SignUp(UserDto user)
         {
-            
+
 
             User userToSignUp = new User()
             {
@@ -31,7 +31,7 @@ namespace MailAutomation.Infrastructure.Services.UserServices
                 LastName = user.LastName,
             };
 
-            if(_userManager.Users.Any(x=>x.UserName==user.UserName) == false)
+            if (_userManager.Users.Any(x => x.NormalizedUserName == user.UserName.ToUpper()) == false)
             {
                 var result = _userManager.CreateAsync(userToSignUp, user.Password).Result;
 
@@ -45,7 +45,7 @@ namespace MailAutomation.Infrastructure.Services.UserServices
                 return new ResultDto(false, Results.UserAleardyExist);
             }
 
-            
+
 
 
         }

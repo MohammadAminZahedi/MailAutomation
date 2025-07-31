@@ -42,7 +42,7 @@
                             <input name="UserName" type="text" class="form-control" id="txtUserName" placeholder="" required>
                             <label for="txtUserName">نام کاربری</label>
                             <div id="validationServerUsernameFeedback" class="invalid-feedback">
-                                نام کاربری تکراری است.
+                               نام کاربری را وارد کنید.
                             </div>
 
                         </div>
@@ -61,6 +61,7 @@
                         </div>
                         @if (ViewBag.ResultState != null)
                         {
+                            <hr />
                             @if (ViewBag.ResultState == true)
                             {
                                 <div class="alert alert-success" role="alert">
@@ -87,7 +88,7 @@
 
                 </div>
             </div>
-            <div class="col-lg-8">
+            <div class="col-lg-8 d-none d-lg-block">
                 <img src="/assets/images/svgs/coding-5-61.svg" alt="">
             </div>
         </div>
