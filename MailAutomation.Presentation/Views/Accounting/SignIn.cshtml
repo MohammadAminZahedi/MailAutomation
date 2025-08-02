@@ -8,8 +8,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/bootstrap.rtl.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
     <title>Singin</title>
 </head>
 
@@ -18,30 +18,45 @@
         <div class="row w-100 align-items-center">
             <div class="col-lg-4">
                 <div class="container ">
-                    <form action="">
+                    <form asp-controller="Accounting" asp-action="SignIn" method="post" class="needs-validation" novalidate>
                         <h2 class="mb-3 text-muted">ورود</h2>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="txtUserName" placeholder="">
+                            <input name="UserName" type="text" class="form-control" id="txtUserName" placeholder="">
                             <label for="txtUserName">نام کاربری</label>
+                            <div class="valid-feedback">
+                                نام کاربری را وارد کنید.
+                            </div>
                         </div>
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="txtPassword" placeholder="">
+                            <input name="Password" type="password" class="form-control" id="txtPassword" placeholder="">
                             <label for="txtPassword">رمز عبور</label>
+                            <div class="valid-feedback">
+                                رمز عبور را وارد کنید.
+                            </div>
                         </div>
                         <div class="d-flex justify-content-center flex-column">
-                            <button class="d-block btn btn-outline-primary mb-3">ورود</button>
-                            <a href="signin.html" class="text-center">ثبت‌نام</a>
+                            <button type="submit" class="d-block btn btn-outline-primary mb-3">ورود</button>
+                            <a asp-controller="Accounting" asp-action="SignUp" class="text-center">ثبت‌نام</a>
                         </div>
+                        @if (ViewBag.ResultState != null)
+                        {
+                            <hr />
+
+                            <div class="alert alert-danger" role="alert">
+                                وارد نشدید.
+                            </div>
+                        }
                     </form>
 
                 </div>
             </div>
-            <div class="col-lg-8">
-                <img src="assets/images/svgs/authentication-65 (1).svg" alt="">
+            <div class="col-lg-8 d-none d-lg-block">
+                <img src="/assets/images/svgs/authentication-65 (1).svg" alt="">
             </div>
         </div>
     </div>
-    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/validation.js"></script>
 </body>
 
 </html>
