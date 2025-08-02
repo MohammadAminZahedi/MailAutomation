@@ -21,16 +21,16 @@
                     <form asp-controller="Accounting" asp-action="SignIn" method="post" class="needs-validation" novalidate>
                         <h2 class="mb-3 text-muted">ورود</h2>
                         <div class="form-floating mb-3">
-                            <input name="UserName" type="text" class="form-control" id="txtUserName" placeholder="">
+                            <input name="UserName" type="text" class="form-control" id="txtUserName" placeholder="" required>
                             <label for="txtUserName">نام کاربری</label>
-                            <div class="valid-feedback">
+                            <div class="invalid-feedback">
                                 نام کاربری را وارد کنید.
                             </div>
                         </div>
                         <div class="form-floating mb-3">
-                            <input name="Password" type="password" class="form-control" id="txtPassword" placeholder="">
+                            <input name="Password" type="password" class="form-control" id="txtPassword" placeholder="" required>
                             <label for="txtPassword">رمز عبور</label>
-                            <div class="valid-feedback">
+                            <div class="invalid-feedback">
                                 رمز عبور را وارد کنید.
                             </div>
                         </div>
