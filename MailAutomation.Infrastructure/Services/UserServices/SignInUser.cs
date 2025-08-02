@@ -27,7 +27,7 @@ namespace MailAutomation.Infrastructure.Services.UserServices
 
             if (foundUsre != null)
             {
-                var result = _signInManager.PasswordSignInAsync(user.UserName, user.Password, true, true).Result;
+                var result = _signInManager.PasswordSignInAsync(user.UserName, user.Password,false, true).Result;
 
                 if (result.Succeeded)
                     return new ResultDto(true, Results.Success);
