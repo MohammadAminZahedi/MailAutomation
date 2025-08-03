@@ -1,6 +1,5 @@
 ﻿using MailAutomation.Application.Common;
 using MailAutomation.Application.MailServices.Queries;
-using MailAutomation.Domain;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,21 +9,21 @@ using System.Threading.Tasks;
 
 namespace MailAutomation.Infrastructure.Services.MailServices
 {
-    public class ReceivedMails : IReceivedMails
+    public class RemovedMails : IRemovedMails
     {
         private readonly Context _context;
 
-        public ReceivedMails(Context context)
+        public RemovedMails(Context context)
         {
             _context = context;
         }
 
-        public IEnumerable<MailDto> GetReceivedMails(string userId)
+        public IEnumerable<MailDto> GetRemovedMails(string userId)
         {
-            var receivedMails = _context.Mails
+            var removedMails = _context.Mails
                 .Include(x => x.Sender)
                 .Include(x => x.Receiver)
-                .Where(x => x.ReceiverId == userId && x.IsRemovedFromReceiver == false)
+                .Where(x => x.ReceiverId == userId && (x.IsRemovedFromSender == true || x.IsRemovedFromReceiver == true))
                 .Select(x => new MailDto()
                 {
                     MailId = x.MailId,
@@ -43,7 +42,7 @@ namespace MailAutomation.Infrastructure.Services.MailServices
                     IsRemovedFromReceiver = x.IsRemovedFromReceiver
                 });
 
-            return receivedMails;
+            return removedMails;
         }
     }
 }

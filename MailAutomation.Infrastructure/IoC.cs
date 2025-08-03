@@ -32,6 +32,7 @@ namespace MailAutomation.Infrastructure
             services.AddTransient<IRestoreMail, RestoreMail>();
             services.AddTransient<ISentMails, SentMails>();
             services.AddTransient<IReceivedMails, ReceivedMails>();
+            services.AddTransient<IRemovedMails, RemovedMails>();
             services.AddTransient<ISearchedMails, SearchedMails>();
             services.AddTransient<IGetMail, GetMail>();
             #endregion
