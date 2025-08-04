@@ -19,30 +19,28 @@ body {
     height: 100px;
     background-color: whitesmoke;
     border-radius: 1rem;
-
 }
 
-.mail-component>.content {
-    font-size: 1rem;
-}
+    .mail-component > .content {
+        font-size: 1rem;
+    }
 
-.mail-component>.number {
-    background-color: rgb(243, 146, 146);
-    padding: 5px 10px;
-    border-radius: 3rem;
-    margin: 1rem;
-    color: rgb(134, 0, 0);
-    font-size: 1rem;
-}
+    .mail-component > .number {
+        background-color: rgb(243, 146, 146);
+        padding: 5px 10px;
+        border-radius: 3rem;
+        margin: 1rem;
+        color: rgb(134, 0, 0);
+        font-size: 1rem;
+    }
 
 .icon-box {
-
     padding: 10px;
     border-radius: 1rem;
     margin: 1rem;
 }
 
-.icon-box-sm{
+.icon-box-sm {
     background-color: rgba(194, 194, 194, 0.284);
     padding: 5px;
     border-radius: .5rem;
@@ -53,7 +51,7 @@ body {
     color: rgb(0, 134, 7);
 }
 
-.sent-mail-color{
+.sent-mail-color {
     color: rgb(0, 134, 7);
 }
 
@@ -62,7 +60,7 @@ body {
     color: rgb(0, 80, 134);
 }
 
-.received-mail-color{
+.received-mail-color {
     color: rgb(0, 80, 134);
 }
 
@@ -71,11 +69,57 @@ body {
     color: rgb(134, 0, 0);
 }
 
-table{
+table {
     width: 100%;
 }
 
-table>tbody>tr{
-border-bottom: 1px rgba(119, 119, 119, 0.596) solid;
+    table > tbody > tr {
+        border-bottom: 1px rgba(119, 119, 119, 0.596) solid;
+    }
 
+.autocomplete-form {
+}
+
+.autocomplete {
+    /*the container must be positioned relative:*/
+    position: relative;
+    display: inline-block;
+}
+
+.autocomplete-form > input, .autocomplete-form > div > input {
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+}
+
+
+    .autocomplete-items div {
+        padding: 10px;
+        cursor: pointer;
+        background-color: #fff;
+        border-bottom: 1px solid #d4d4d4;
+    }
+
+        .autocomplete-items div:hover {
+            /*when hovering an item:*/
+            background-color: #e9e9e9;
+        }
+
+.autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: DodgerBlue !important;
+    color: #ffffff;
 }

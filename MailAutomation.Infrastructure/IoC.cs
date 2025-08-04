@@ -25,6 +25,7 @@ namespace MailAutomation.Infrastructure
             services.AddTransient<ISignUpUser, SignUpUser>();
             services.AddTransient<ISignOutUser, SignOutUser>();
             services.AddTransient<IGetUser, GetUser>();
+            services.AddTransient<IGetUsers,GetUsers>();
 
             //Mail
             services.AddTransient<ISendMail, SendMail>();
