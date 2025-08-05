@@ -36,6 +36,7 @@ namespace MailAutomation.Infrastructure
             services.AddTransient<IRemovedMails, RemovedMails>();
             services.AddTransient<ISearchedMails, SearchedMails>();
             services.AddTransient<IGetMail, GetMail>();
+            services.AddTransient<IReplyMail, ReplyMail>();
             #endregion
 
             services.AddDbContext<Context>();

@@ -42,7 +42,8 @@ namespace MailAutomation.Infrastructure.Services.MailServices
                 SenderId = mail.SenderId,
                 ReceiverId = receiver.UserId,
                 IsRemovedFromSender = mail.IsRemovedFromSender,
-                IsRemovedFromReceiver = mail.IsRemovedFromReceiver
+                IsRemovedFromReceiver = mail.IsRemovedFromReceiver,
+                ParentMailId=mail.ParentMailId
             };
 
             _context.Mails.Add(mailToSend);

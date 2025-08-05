@@ -1,0 +1,45 @@
+﻿
+@using MailAutomation.Application.Common
+@model MailDto;
+
+
+<div class="container my-3">
+    <form asp-action="Reply" asp-controller="Mail" method="post" class="autocomplete-form needs-validation" novalidate>
+        <h3>گیرنده</h3>
+        <div class="autocomplete mb-3" style="width:300px;">
+            <input class="form-control" id="myInput" type="text" name="ReceiverUserName" value="@ViewBag.ReceiverUsername"
+                   required readonly>
+           <input type="hidden" name="ParentMailId" value="@ViewBag.ParentMailId" />
+           
+        </div>
+        <h3>موضوع</h3>
+        <input name="Title" class="form-control mb-3" id="txtTitle" type="text" required
+               value="پاسخ به @ViewBag.Title" readonly />
+        @if (Model != null)
+        {
+            
+            
+            <h3>متن</h3>
+            <textarea rows="10" name="Body" class="form-control" id="txtBody" required>@Model.Body</textarea>
+            <div class="invalid-feedback">
+                متن نامه نمیتواند خالی باشد.
+            </div>
+
+        }
+        else
+        {
+           
+            <h3>متن</h3>
+            <textarea name="Body" class="form-control" id="txtBody" rows="10" required></textarea>
+            <div class="invalid-feedback">
+                متن نامه نمیتواند خالی باشد.
+            </div>
+        }
+
+        <button class="px-4 my-3 btn btn btn-primary" type="submit">ارسال</button>
+    </form>
+</div>
+
+
+<script src="~/assets/js/auto-complete.js"></script>
+<script src="~/assets/js/validation.js"></script>

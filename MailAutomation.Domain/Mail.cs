@@ -17,7 +17,10 @@ namespace MailAutomation.Domain
         public string ReceiverId { get; set; }
         public bool IsRemovedFromSender { get; set; }
         public bool IsRemovedFromReceiver { get; set; }
+        public string? ParentMailId {  get; set; }    
 
+        public Mail ParentMail { get; set; }
+        public IEnumerable<Mail> Replies { get; set; }
         public User Sender { get; set; }
         public User Receiver { get; set; }
     }

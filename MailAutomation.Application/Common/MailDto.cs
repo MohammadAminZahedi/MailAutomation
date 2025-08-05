@@ -20,6 +20,7 @@ namespace MailAutomation.Application.Common
         public string ReceiverUserName { get; set; }
         public string ReceiverFirstName { get; set; }
         public string ReceiverLastName { get; set; }
+        public string? ParentMailId { get; set; }
         public bool IsRemovedFromSender { get; set; }
         public bool IsRemovedFromReceiver { get; set; }
     }

@@ -15,6 +15,10 @@ namespace MailAutomation.Infrastructure.Mapping
         {
             builder.Property(x=>x.IsRemovedFromSender).HasDefaultValue(false);
             builder.Property(x=>x.IsRemovedFromReceiver).HasDefaultValue(false);
+
+            builder.HasMany(x => x.Replies).WithOne(x => x.ParentMail)
+                .HasForeignKey(x => x.ParentMailId).HasPrincipalKey(x => x.MailId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

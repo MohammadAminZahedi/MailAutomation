@@ -86,14 +86,14 @@ namespace MailAutomation.Presentation.Controllers
 
         public IActionResult ShowMail(string mailId)
         {
-            var mail=_getMail.GetMailById(mailId);
+            var mail = _getMail.GetMailById(mailId);
             return View(mail);
         }
 
         public IActionResult Remove(string mailId)
         {
             var result = _removeMail.Remove(mailId, User.FindFirst(ClaimTypes.NameIdentifier).Value);
-            if(result.State)
+            if (result.State)
             {
                 return RedirectToAction("Trash", "Mail");
             }
@@ -115,6 +115,38 @@ namespace MailAutomation.Presentation.Controllers
             {
                 //implemented
                 return RedirectToAction("ShowMail", "Mail");
+            }
+        }
+
+        public IActionResult Reply(string parentMailId)
+        {
+            var parentMail = _getMail.GetMailById(parentMailId);
+            ViewBag.Title=parentMail.Title;
+            ViewBag.ParentMailId = parentMailId;
+            ViewBag.ReceiverUsername = parentMail.SenderUserName;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Reply(MailDto mailDto)
+        {
+            MailDto mailToSend = new MailDto()
+            {
+                Title = mailDto.Title,
+                Body = mailDto.Body.Trim(),
+                SenderId = User.FindFirst(ClaimTypes.NameIdentifier).Value,
+                ReceiverUserName = mailDto.ReceiverUserName,
+                ParentMailId = mailDto.ParentMailId
+            };
+            var result = _sendMail.Send(mailToSend);
+            if (result.State)
+            {
+                return RedirectToAction("Outbox", "Mail");
+            }
+            else
+            {
+
+                return View(mailDto);
             }
         }
 
