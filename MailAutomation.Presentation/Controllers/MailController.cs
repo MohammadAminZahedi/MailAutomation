@@ -16,8 +16,9 @@ namespace MailAutomation.Presentation.Controllers
         private readonly ISendMail _sendMail;
         private readonly IGetUsers _getUsers;
         private readonly IGetUser _getUser;
+        private readonly IGetMail _getMail;
 
-        public MailController(IReceivedMails receivedMails, ISentMails sentMails, IRemovedMails removedMails, ISendMail sendMail, IGetUsers getUsers, IGetUser getUser)
+        public MailController(IReceivedMails receivedMails, ISentMails sentMails, IRemovedMails removedMails, ISendMail sendMail, IGetUsers getUsers, IGetUser getUser, IGetMail getMail)
         {
             _receivedMails = receivedMails;
             _sentMails = sentMails;
@@ -25,6 +26,7 @@ namespace MailAutomation.Presentation.Controllers
             _sendMail = sendMail;
             _getUsers = getUsers;
             _getUser = getUser;
+            _getMail = getMail;
         }
 
         public IActionResult Inbox()
@@ -76,6 +78,12 @@ namespace MailAutomation.Presentation.Controllers
 
                 return View(mailDto);
             }
+        }
+
+        public IActionResult ShowMail(string mailId)
+        {
+            var mail=_getMail.GetMailById(mailId);
+            return View(mail);
         }
 
     }
