@@ -1,28 +1,56 @@
-﻿
+﻿@using MailAutomation.Application.Common
+@model MailDto;
 
 
-    <div class="container my-3">
-        <form class="autocomplete-form" autocomplete="off" action="#" novalidate>
-            <h3>گیرنده</h3>
-            <div class="autocomplete mb-3" style="width:300px;">
-                <input class="form-control" id="myInput" type="text" name="myCountry" placeholder="نام کاربری گیرنده..."
-                       required>
-                <div class="invalid-feedback">
-                    نام کاربری گیرنده وجود ندارد.
+<div class="container my-3">
+    <form asp-action="Compose" asp-controller="Mail" method="post" class="autocomplete-form needs-validation" novalidate>
+        <h3>گیرنده</h3>
+        <div class="autocomplete mb-3" style="width:300px;">
+            <input class="form-control" id="myInput" type="text" name="ReceiverUserName" placeholder="نام کاربری گیرنده..."
+                   required>
+                   <div class="invalid-feedback">
+                       نام کاربری را وارد کنید.
+                   </div>
+            @if (Model != null)
+            {
+                <div class="my-3 alert alert-warning alert-dismissible fade show" role="alert">
+                    نام کاربری وجود ندارد.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-            </div>
-            <h3>موضوع</h3>
-            <input name="" class="form-control mb-3" id="txtTitle" type="text" placeholder="موضوع نامه" required />
+            }
+        </div>
+        <h3>موضوع</h3>
+        @if (Model != null)
+        {
+            <input name="Title" class="form-control mb-3" id="txtTitle" type="text" placeholder="موضوع نامه" required
+                   value="@Model.Title" />
             <div class="invalid-feedback">
                 موضوع را وارد کنید.
             </div>
             <h3>متن</h3>
-            <textarea class="form-control" name="" id="txtBody" style="height: 50vh;">
+            <textarea name="Body" class="form-control" id="txtBody" style="height: 50vh;" required>@Model.Body</textarea>
+            <div class="invalid-feedback">
+                متن نامه نمیتواند خالی باشد.
+            </div>
 
-            </textarea>
-            <button class="px-4 my-3 btn btn btn-primary" type="submit">ارسال</button>
-        </form>
-    </div>
+        }
+        else
+        {
+            <input name="Title" class="form-control mb-3" id="txtTitle" type="text" placeholder="موضوع نامه" required />
+            <div class="invalid-feedback">
+                موضوع را وارد کنید.
+            </div>
+            <h3>متن</h3>
+            <textarea name="Body" class="form-control" id="txtBody" style="height: 50vh;" required></textarea>
+            <div class="invalid-feedback">
+                متن نامه نمیتواند خالی باشد.
+            </div>
+        }
 
-  
+        <button class="px-4 my-3 btn btn btn-primary" type="submit">ارسال</button>
+    </form>
+</div>
+
+
 <script src="~/assets/js/auto-complete.js"></script>
+<script src="~/assets/js/validation.js"></script>

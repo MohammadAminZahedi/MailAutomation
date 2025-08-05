@@ -33,7 +33,7 @@ namespace MailAutomation.Presentation
             app.MapStaticAssets();
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Accounting}/{action=SignUp}/{id?}")
+                pattern: "{controller=Accounting}/{action=SignIn}/{id?}")
                 .WithStaticAssets();
 
             app.Run();

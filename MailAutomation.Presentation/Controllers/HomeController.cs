@@ -6,7 +6,7 @@ using System.Diagnostics;
 
 namespace MailAutomation.Presentation.Controllers
 {
-    [Authorize]
+   // [Authorize]
     public class HomeController : Controller
     {
         private readonly ISignOutUser _signOutUser;

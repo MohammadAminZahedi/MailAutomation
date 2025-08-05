@@ -1,5 +1,6 @@
 ﻿using MailAutomation.Application.Common;
 using MailAutomation.Application.MailServices.Commands;
+using MailAutomation.Application.UserServices.Queries;
 using MailAutomation.Domain;
 using System;
 using System.Collections.Generic;
@@ -12,22 +13,34 @@ namespace MailAutomation.Infrastructure.Services.MailServices
     public class SendMail : ISendMail
     {
         private readonly Context _context;
+        private readonly IGetUser _getUser;
 
-        public SendMail(Context context)
+        public SendMail(Context context, IGetUser getUser)
         {
             _context = context;
+            _getUser = getUser;
         }
 
         public ResultDto Send(MailDto mail)
         {
+            var receiver = _getUser.GetUserByUserName(mail.ReceiverUserName);
+
+            if (receiver == null)
+            {
+                return new ResultDto(false, Results.UserNotFound);
+            }
+
+            
+
+
             Mail mailToSend = new Mail()
             {
                 MailId = Guid.NewGuid().ToString(),
                 Title = mail.Title,
                 Body = mail.Body,
-                Date = mail.Date,
+                Date = DateTime.Now,
                 SenderId = mail.SenderId,
-                ReceiverId = mail.ReceiverId,
+                ReceiverId = receiver.UserId,
                 IsRemovedFromSender = mail.IsRemovedFromSender,
                 IsRemovedFromReceiver = mail.IsRemovedFromReceiver
             };

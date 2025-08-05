@@ -15,14 +15,16 @@ namespace MailAutomation.Presentation.Controllers
         private readonly IRemovedMails _removedMails;
         private readonly ISendMail _sendMail;
         private readonly IGetUsers _getUsers;
+        private readonly IGetUser _getUser;
 
-        public MailController(IReceivedMails receivedMails, ISentMails sentMails, IRemovedMails removedMails, ISendMail sendMail, IGetUsers getUsers)
+        public MailController(IReceivedMails receivedMails, ISentMails sentMails, IRemovedMails removedMails, ISendMail sendMail, IGetUsers getUsers, IGetUser getUser)
         {
             _receivedMails = receivedMails;
             _sentMails = sentMails;
             _removedMails = removedMails;
             _sendMail = sendMail;
             _getUsers = getUsers;
+            _getUser = getUser;
         }
 
         public IActionResult Inbox()
@@ -57,7 +59,23 @@ namespace MailAutomation.Presentation.Controllers
         [HttpPost]
         public IActionResult Compose(MailDto mailDto)
         {
-            return View();
+            MailDto mailToSend = new MailDto()
+            {
+                Title = mailDto.Title,
+                Body = mailDto.Body.Trim(),
+                SenderId = User.FindFirst(ClaimTypes.NameIdentifier).Value,
+                ReceiverUserName = mailDto.ReceiverUserName
+            };
+            var result = _sendMail.Send(mailToSend);
+            if (result.State)
+            {
+                return RedirectToAction("Outbox", "Mail");
+            }
+            else
+            {
+
+                return View(mailDto);
+            }
         }
 
     }
