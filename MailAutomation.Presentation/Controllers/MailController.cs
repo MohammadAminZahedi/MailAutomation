@@ -17,8 +17,10 @@ namespace MailAutomation.Presentation.Controllers
         private readonly IGetUsers _getUsers;
         private readonly IGetUser _getUser;
         private readonly IGetMail _getMail;
+        private readonly IRemoveMail _removeMail;
+        private readonly IRestoreMail _restoreMail;
 
-        public MailController(IReceivedMails receivedMails, ISentMails sentMails, IRemovedMails removedMails, ISendMail sendMail, IGetUsers getUsers, IGetUser getUser, IGetMail getMail)
+        public MailController(IReceivedMails receivedMails, ISentMails sentMails, IRemovedMails removedMails, ISendMail sendMail, IGetUsers getUsers, IGetUser getUser, IGetMail getMail, IRemoveMail removeMail, IRestoreMail restoreMail)
         {
             _receivedMails = receivedMails;
             _sentMails = sentMails;
@@ -27,6 +29,8 @@ namespace MailAutomation.Presentation.Controllers
             _getUsers = getUsers;
             _getUser = getUser;
             _getMail = getMail;
+            _removeMail = removeMail;
+            _restoreMail = restoreMail;
         }
 
         public IActionResult Inbox()
@@ -84,6 +88,34 @@ namespace MailAutomation.Presentation.Controllers
         {
             var mail=_getMail.GetMailById(mailId);
             return View(mail);
+        }
+
+        public IActionResult Remove(string mailId)
+        {
+            var result = _removeMail.Remove(mailId, User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            if(result.State)
+            {
+                return RedirectToAction("Trash", "Mail");
+            }
+            else
+            {
+                //implement
+                return RedirectToAction("ShowMail", "Mail", mailId);
+            }
+        }
+
+        public IActionResult Restore(string mailId)
+        {
+            var result = _restoreMail.Restore(mailId, User.FindFirst(ClaimTypes.NameIdentifier).Value);
+            if (result.State)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                //implemented
+                return RedirectToAction("ShowMail", "Mail");
+            }
         }
 
     }

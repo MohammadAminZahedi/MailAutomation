@@ -23,7 +23,8 @@ namespace MailAutomation.Infrastructure.Services.MailServices
             var removedMails = _context.Mails
                 .Include(x => x.Sender)
                 .Include(x => x.Receiver)
-                .Where(x => x.ReceiverId == userId && (x.IsRemovedFromSender == true || x.IsRemovedFromReceiver == true))
+                .Where(x => (x.ReceiverId == userId && x.IsRemovedFromReceiver == true)
+                || (x.SenderId == userId && x.IsRemovedFromSender == true))
                 .Select(x => new MailDto()
                 {
                     MailId = x.MailId,
