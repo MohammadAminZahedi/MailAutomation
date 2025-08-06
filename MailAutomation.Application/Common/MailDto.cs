@@ -21,6 +21,7 @@ namespace MailAutomation.Application.Common
         public string ReceiverFirstName { get; set; }
         public string ReceiverLastName { get; set; }
         public string? ParentMailId { get; set; }
+        public IEnumerable<MailDto>? Replies {  get; set; }
         public bool IsRemovedFromSender { get; set; }
         public bool IsRemovedFromReceiver { get; set; }
     }

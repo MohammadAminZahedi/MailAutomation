@@ -69,13 +69,44 @@ body {
     color: rgb(134, 0, 0);
 }
 
-table {
+.mail table {
     width: 100%;
 }
 
-    table > tbody > tr {
-        border-bottom: 1px rgba(119, 119, 119, 0.596) solid;
+.mail tr {
+    border-top: 1px rgba(119, 119, 119, 0.596) solid;
+    border-bottom: 1px rgba(119, 119, 119, 0.596) solid;
+}
+
+    .mail tr:first-child {
+        border: none;
     }
+
+    .mail tr:last-child {
+        border-bottom: none;
+    }
+
+.replies table {
+    width: 100%;
+    line-height: 2rem;
+}
+
+.replies tr {
+    border-top: 1px rgba(119, 119, 119, 0.596) solid;
+    border-bottom: 1px rgba(119, 119, 119, 0.596) solid;
+}
+
+    .replies tr:first-child {
+        border: none;
+    }
+
+    .replies tr:last-child {
+        border-bottom: none;
+    }
+
+/*.replies tr:nth-child(even) {
+        border-top: 1px rgba(119, 119, 119, 0.596) solid;
+    }*/
 
 .autocomplete-form {
 }
@@ -123,3 +154,12 @@ table {
     background-color: DodgerBlue !important;
     color: #ffffff;
 }
+
+.mail-box {
+    border: 1.5px solid gray;
+    border-radius: .5rem;
+}
+
+    .mail-box > p {
+        white-space: pre-line;
+    }

@@ -42,6 +42,26 @@ namespace MailAutomation.Infrastructure.Services.MailServices
                     ReceiverUserName = foundMail.Receiver.UserName,
                     ReceiverFirstName = foundMail.Receiver.FirstName,
                     ReceiverLastName = foundMail.Receiver.LastName,
+                    ParentMailId = foundMail.ParentMailId,
+                    Replies = _context.Mails.Where(m => m.ParentMailId == mailId)
+                    .Select(m => new MailDto()
+                    {
+                        MailId = m.MailId,
+                        Title = m.Title,
+                        Body = m.Body,
+                        Date = m.Date,
+                        SenderId = m.SenderId,
+                        SenderUserName = m.Sender.UserName,
+                        SenderFirstName = m.Sender.FirstName,
+                        SenderLastName = m.Sender.LastName,
+                        ReceiverId = m.ReceiverId,
+                        ReceiverUserName = m.Receiver.UserName,
+                        ReceiverFirstName = m.Receiver.FirstName,
+                        ReceiverLastName = m.Receiver.LastName,
+                        ParentMailId = m.ParentMailId,
+                        IsRemovedFromSender = m.IsRemovedFromSender,
+                        IsRemovedFromReceiver = m.IsRemovedFromReceiver
+                    }),
                     IsRemovedFromSender = foundMail.IsRemovedFromSender,
                     IsRemovedFromReceiver = foundMail.IsRemovedFromReceiver
                 };

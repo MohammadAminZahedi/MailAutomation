@@ -19,6 +19,7 @@ namespace MailAutomation.Presentation.Controllers
         private readonly IGetMail _getMail;
         private readonly IRemoveMail _removeMail;
         private readonly IRestoreMail _restoreMail;
+       
 
         public MailController(IReceivedMails receivedMails, ISentMails sentMails, IRemovedMails removedMails, ISendMail sendMail, IGetUsers getUsers, IGetUser getUser, IGetMail getMail, IRemoveMail removeMail, IRestoreMail restoreMail)
         {
@@ -31,7 +32,7 @@ namespace MailAutomation.Presentation.Controllers
             _getMail = getMail;
             _removeMail = removeMail;
             _restoreMail = restoreMail;
-        }
+         }
 
         public IActionResult Inbox()
         {
