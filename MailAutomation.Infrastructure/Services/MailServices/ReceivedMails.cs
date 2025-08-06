@@ -25,6 +25,7 @@ namespace MailAutomation.Infrastructure.Services.MailServices
                 .Include(x => x.Sender)
                 .Include(x => x.Receiver)
                 .Where(x => x.ReceiverId == userId && x.IsRemovedFromReceiver == false)
+                .OrderByDescending(x=>x.Date)
                 .Select(x => new MailDto()
                 {
                     MailId = x.MailId,

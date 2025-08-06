@@ -33,6 +33,7 @@ namespace MailAutomation.Infrastructure.Services.MailServices
                  x.Receiver.UserName.Contains(key) ||
                  x.Receiver.FirstName.Contains(key) ||
                  x.Receiver.LastName.Contains(key))
+                .OrderByDescending(x => x.Date)
                  .Select(x => new MailDto()
                  {
                      MailId = x.MailId,
