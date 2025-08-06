@@ -26,9 +26,9 @@ namespace MailAutomation.Infrastructure.Services.UserServices
             User userToSignUp = new User()
             {
                 Id = Guid.NewGuid().ToString(),
-                UserName = user.UserName,
-                FirstName = user.FirstName,
-                LastName = user.LastName,
+                UserName = user.UserName.Trim(),
+                FirstName = user.FirstName.Trim(),
+                LastName = user.LastName.Trim()
             };
 
             if (_userManager.Users.Any(x => x.NormalizedUserName == user.UserName.ToUpper()) == false)

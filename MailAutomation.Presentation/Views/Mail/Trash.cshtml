@@ -71,7 +71,7 @@
 
                         <td class="align-middle">
                             <div class="d-flex">
-                                <a class="icon-box-sm me-2" asp-action="ShowMail" asp-controller="Mail" asp-route-mailId="@mail.MailId">
+                                <a data-bs-toggle="tooltip" data-bs-title="دیدن" class="icon-box-sm me-2" asp-action="ShowMail" asp-controller="Mail" asp-route-mailId="@mail.MailId">
                                     <svg height="20" width="20" class="text-success">
                                         <use href="/assets/images/icons/eye-fill.svg" width="20" height="20" />
                                     </svg>
@@ -79,7 +79,7 @@
 
                             @if (User.Identity.Name == mail.SenderUserName)
                                 {
-                                    <a class="icon-box-sm me-2" asp-action="Restore" asp-controller="Mail" asp-route-mailId="@mail.MailId">
+                                    <a data-bs-toggle="tooltip" data-bs-title="بازگرداندن" class="icon-box-sm me-2" asp-action="Restore" asp-controller="Mail" asp-route-mailId="@mail.MailId">
                                         <svg height="20" width="20" class="text-primary">
                                             <use href="/assets/images/icons/arrow-bar-up.svg" width="20" height="20" />
                                         </svg>
