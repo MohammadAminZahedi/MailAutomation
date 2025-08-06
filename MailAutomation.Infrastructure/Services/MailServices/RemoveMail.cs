@@ -24,9 +24,9 @@ namespace MailAutomation.Infrastructure.Services.MailServices
             if (mailToRemove != null)
             {
                 if (mailToRemove.SenderId == userId)
-                    mailToRemove.IsRemovedFromSender = true;
+                    mailToRemove.IsRemoved = true;
                 else
-                    mailToRemove.IsRemovedFromReceiver = true;
+                    return new ResultDto(false, Results.Failure);
 
                 int stateChanges = _context.SaveChanges();
 

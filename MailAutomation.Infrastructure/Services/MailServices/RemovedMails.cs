@@ -23,8 +23,7 @@ namespace MailAutomation.Infrastructure.Services.MailServices
             var removedMails = _context.Mails
                 .Include(x => x.Sender)
                 .Include(x => x.Receiver)
-                .Where(x => (x.ReceiverId == userId && x.IsRemovedFromReceiver == true)
-                || (x.SenderId == userId && x.IsRemovedFromSender == true))
+                .Where(x => (x.ReceiverId == userId || x.SenderId==userId) && x.IsRemoved == true)
                 .OrderByDescending(x => x.Date)
                 .Select(x => new MailDto()
                 {
@@ -40,8 +39,7 @@ namespace MailAutomation.Infrastructure.Services.MailServices
                     ReceiverUserName = x.Receiver.UserName,
                     ReceiverFirstName = x.Receiver.FirstName,
                     ReceiverLastName = x.Receiver.LastName,
-                    IsRemovedFromSender = x.IsRemovedFromSender,
-                    IsRemovedFromReceiver = x.IsRemovedFromReceiver
+                    IsRemoved = x.IsRemoved
                 });
 
             return removedMails;

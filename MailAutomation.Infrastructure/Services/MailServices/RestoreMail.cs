@@ -25,9 +25,9 @@ namespace MailAutomation.Infrastructure.Services.MailServices
             if (mailToRestore != null)
             {
                 if (mailToRestore.SenderId == userId)
-                    mailToRestore.IsRemovedFromSender = false;
+                    mailToRestore.IsRemoved = false;
                 else
-                    mailToRestore.IsRemovedFromReceiver = false;
+                    return new ResultDto(false, Results.Failure);
 
                 int stateChanges = _context.SaveChanges();
 

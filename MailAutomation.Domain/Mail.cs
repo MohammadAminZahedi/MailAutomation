@@ -15,8 +15,7 @@ namespace MailAutomation.Domain
         public DateTime Date { get; set; }
         public string SenderId { get; set; }
         public string ReceiverId { get; set; }
-        public bool IsRemovedFromSender { get; set; }
-        public bool IsRemovedFromReceiver { get; set; }
+        public bool IsRemoved { get; set; }
         public string? ParentMailId {  get; set; }    
 
         public Mail ParentMail { get; set; }

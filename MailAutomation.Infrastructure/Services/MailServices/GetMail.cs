@@ -59,11 +59,9 @@ namespace MailAutomation.Infrastructure.Services.MailServices
                         ReceiverFirstName = m.Receiver.FirstName,
                         ReceiverLastName = m.Receiver.LastName,
                         ParentMailId = m.ParentMailId,
-                        IsRemovedFromSender = m.IsRemovedFromSender,
-                        IsRemovedFromReceiver = m.IsRemovedFromReceiver
+                        IsRemoved = m.IsRemoved,
                     }),
-                    IsRemovedFromSender = foundMail.IsRemovedFromSender,
-                    IsRemovedFromReceiver = foundMail.IsRemovedFromReceiver
+                    IsRemoved = foundMail.IsRemoved,
                 };
 
                 return mail;

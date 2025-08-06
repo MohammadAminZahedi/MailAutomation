@@ -41,8 +41,7 @@ namespace MailAutomation.Infrastructure.Services.MailServices
                 Date = DateTime.Now,
                 SenderId = mail.SenderId,
                 ReceiverId = receiver.UserId,
-                IsRemovedFromSender = mail.IsRemovedFromSender,
-                IsRemovedFromReceiver = mail.IsRemovedFromReceiver,
+                IsRemoved = mail.IsRemoved,
                 ParentMailId=mail.ParentMailId
             };
 

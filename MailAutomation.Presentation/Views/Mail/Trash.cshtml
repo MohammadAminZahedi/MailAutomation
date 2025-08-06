@@ -48,25 +48,25 @@
                                 </svg>
                             </td>
                             <td>
-                                <p class="mb-0">از @mail.SenderFirstName+" "+@mail.SenderLastName</p>
+                                <p class="mb-0">از @mail.SenderFirstName @mail.SenderLastName</p>
                                 <p class="text-secondary mb-0">@mail.SenderUserName</p>
                             </td>
 
                         }
 
-                        <td class="align-middle ">
-                            <span class="text-secondary text-xs font-weight-bold">@mail.Date.ToString("yyyy/dd/MM HH:mm")</span>
-                        </td>
-                        <td>
-                            <p class="mb-0">
-                                <span class="">@mail.Title</span>
-                            </p>
+                    <td class="align-middle ">
+                        <span class="text-secondary text-xs font-weight-bold">@mail.Date.ToString("yyyy/dd/MM HH:mm")</span>
+                    </td>
+                    <td>
+                        <p class="mb-0">
+                            <span class="">@mail.Title</span>
+                        </p>
                         <p class="fw-light text-secondary mb-0">
                             @(mail.Body.Length > 18 ?
                                                         mail.Body.Substring(0, 18) + "..." :
                                                         mail.Body)
                         </p>
-                        </td>
+                    </td>
 
 
                         <td class="align-middle">
@@ -77,11 +77,14 @@
                                     </svg>
                                 </a>
 
-                                <a class="icon-box-sm me-2" asp-action="Restore" asp-controller="Mail" asp-route-mailId="@mail.MailId">
-                                    <svg height="20" width="20" class="text-primary">
-                                        <use href="/assets/images/icons/arrow-bar-up.svg" width="20" height="20" />
-                                    </svg>
-                                </a>
+                            @if (User.Identity.Name == mail.SenderUserName)
+                                {
+                                    <a class="icon-box-sm me-2" asp-action="Restore" asp-controller="Mail" asp-route-mailId="@mail.MailId">
+                                        <svg height="20" width="20" class="text-primary">
+                                            <use href="/assets/images/icons/arrow-bar-up.svg" width="20" height="20" />
+                                        </svg>
+                                    </a>
+                                }
 
 
                             </div>
