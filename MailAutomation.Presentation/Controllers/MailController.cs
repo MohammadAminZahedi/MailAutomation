@@ -2,12 +2,14 @@
 using MailAutomation.Application.MailServices.Commands;
 using MailAutomation.Application.MailServices.Queries;
 using MailAutomation.Application.UserServices.Queries;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using System.Security.Claims;
 
 namespace MailAutomation.Presentation.Controllers
 {
+    [Authorize]
     public class MailController : Controller
     {
         private readonly IReceivedMails _receivedMails;
